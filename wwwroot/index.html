@@ -1,8 +1,212 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AutoLot | Find your next car</title><link rel="stylesheet" href="styles.css"></head>
-<body><header><a class="brand" href="/">AUTO<span>LOT</span></a><nav><a href="#inventory">Browse vehicles</a><a href="#about">About</a></nav></header>
-<main><section class="hero"><p class="eyebrow">YOUR NEXT DRIVE STARTS HERE</p><h1>Find a car that<br>feels like yours.</h1><p>Explore our inventory, compare the details, and find your next ride.</p><a class="button" href="#inventory">Explore vehicles →</a></section>
-<section id="inventory" class="container"><div class="heading"><div><p class="eyebrow">FIND YOUR FIT</p><h2>Explore our vehicles</h2></div><p>Search by make, model, year, and price.</p></div>
-<form id="filters"><label>Make<input name="make" placeholder="e.g. Toyota" maxlength="80"></label><label>Model<input name="model" placeholder="e.g. Camry" maxlength="80"></label><label>Year<input name="year" type="number" min="1886" max="2100" placeholder="Any year"></label><label>Min price<input name="minPrice" type="number" min="0" step="0.01" placeholder="$0"></label><label>Max price<input name="maxPrice" type="number" min="0" step="0.01" placeholder="Any"></label><div class="actions"><button type="submit">Search</button><button class="secondary" type="reset">Clear</button></div></form>
-<div class="results-heading"><h3 id="results-title">Featured vehicles</h3><span id="message" role="status" aria-live="polite"></span></div><div id="vehicles" class="grid"></div><div class="pagination"><button id="previous" class="secondary" type="button">Previous</button><span id="page"></span><button id="next" class="secondary" type="button">Next</button></div></section>
-<section id="about" class="about"><div class="container"><p class="eyebrow">ABOUT AUTOLOT</p><h2>Shopping made simple.</h2><p>Browse from home and get to know each vehicle before visiting the dealership.</p><p>Contact information and customer inquiries are coming soon.</p></div></section></main><footer>AutoLot · Student project starter</footer><script src="app.js"></script></body></html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AutoLot | Find your next car</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Header / Navigation -->
+    <header>
+        <a class="brand" href="/">
+            AUTO<span>LOT</span>
+        </a>
+
+        <nav aria-label="Primary navigation">
+            <a href="#inventory">Browse vehicles</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <p class="eyebrow">
+                ITS NOT JUST A CAR,<br>
+                ITS AN EXTENTION OF YOURSELF
+            </p>
+
+            <h1 id="hero-title">
+                Find a car that<br>
+                represents you.
+            </h1>
+
+            <p>
+                Explore our inventory and compare.<br>
+                Find your next partner.
+            </p>
+
+        </section>
+
+        <!-- Inventory Section -->
+        <section id="inventory" class="container" aria-labelledby="inventory-title">
+
+            <!-- Inventory Heading -->
+            <div class="heading">
+                <div>
+                    <p class="eyebrow">
+                        FIND YOUR FIT
+                    </p>
+
+                    <h2 id="inventory-title">
+                        Explore our vehicles
+                    </h2>
+                </div>
+
+                <p>
+                    Search by make, model, year, and price.
+                </p>
+            </div>
+
+            <!-- Search Form -->
+            <form id="filters" aria-label="Search vehicles">
+
+                <label>
+                    Make
+
+                    <input name="make"
+                           type="text"
+                           placeholder="e.g. Toyota"
+                           maxlength="80">
+                </label>
+
+                <label>
+                    Model
+
+                    <input name="model"
+                           type="text"
+                           placeholder="e.g. Corolla"
+                           maxlength="80">
+                </label>
+
+                <label>
+                    Year
+
+                    <input name="year"
+                           type="number"
+                           min="1886"
+                           max="2100"
+                           placeholder="Any Year">
+                </label>
+
+                <label>
+                    Minimum price
+
+                    <input name="minPrice"
+                           type="number"
+                           min="0"
+                           step="0.01"
+                           placeholder="$0">
+                </label>
+
+                <label>
+                    Maximum price
+
+                    <input name="maxPrice"
+                           type="number"
+                           min="0"
+                           step="0.01"
+                           placeholder="Any Price">
+                </label>
+
+                <div class="actions">
+                    <button type="submit">
+                        Search
+                    </button>
+
+                    <button class="secondary"
+                            type="reset">
+                        Clear
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- Search Results Heading -->
+            <section class="vehicle-results" aria-labelledby="results-title">
+                <div class="results-heading">
+                    <h3 id="results-title">
+                        Featured vehicles
+                    </h3>
+
+                    <span id="message"
+                          role="status"
+                          aria-live="polite"
+                          aria-atomic="true"></span>
+                </div>
+
+                <!-- Vehicle cards are created here by app.js -->
+                <div id="vehicles"
+                     class="grid"
+                     aria-busy="false"></div>
+
+                <!-- Pagination -->
+                <nav class="pagination" aria-label="Vehicle result pages">
+
+                    <button id="previous"
+                            class="secondary"
+                            type="button">
+                        Previous
+                    </button>
+
+                    <span id="page" aria-live="polite" aria-atomic="true"></span>
+
+                    <button id="next"
+                            class="secondary"
+                            type="button">
+                        Next
+                    </button>
+
+                </nav>
+            </section>
+
+        </section>
+
+        <!-- About Section -->
+        <section id="about"
+                 class="about"
+                 aria-labelledby="about-title">
+            <div class="container">
+
+                <p class="eyebrow">
+                    ABOUT AUTOLOT
+                </p>
+
+                <h2 id="about-title">
+                    Cars are personal. We get it.
+                </h2>
+
+                <p>
+                    Browse from home and get to know each vehicle
+                    before visiting the dealership.
+                </p>
+
+                <p>
+                    CSE 4050 - Web Application Development | Fall 2026 | Mudassar Ghazi<br>
+
+                    Agustin Mariscal, Ali Mohamed, Austin Huitron, Spencer Ahumada
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        AutoLot · Automotive Dealership Website For All Vehicles · CSE 4050 | Fall 2026
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
