@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account | AutoLot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header>
+        <a class="brand" href="/">AUTO<span>LOT</span></a>
+        <nav aria-label="Primary navigation">
+            <a href="/">Browse vehicles</a>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container account-container">
+        <h1>Your AutoLot account</h1>
+        <p id="account-message" role="status" aria-live="polite" aria-atomic="true"></p>
+
+        <section id="account-forms" class="account-grid" aria-label="Account access">
+            <form id="login-form" class="account-form" aria-labelledby="login-title">
+                <h2 id="login-title">Sign in</h2>
+                <label for="login-email">Email</label>
+                <input id="login-email" name="email" type="email" autocomplete="username" maxlength="254" required>
+
+                <label for="login-password">Password</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+
+                <label class="checkbox-label">
+                    <input name="rememberMe" type="checkbox">
+                    Keep me signed in
+                </label>
+
+                <button type="submit">Sign in</button>
+            </form>
+
+            <form id="register-form" class="account-form" aria-labelledby="register-title">
+                <h2 id="register-title">Create an account</h2>
+                <label for="register-name">Full name</label>
+                <input id="register-name" name="fullName" type="text" autocomplete="name" maxlength="100" required>
+
+                <label for="register-email">Email</label>
+                <input id="register-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+
+                <label for="register-phone">Phone (optional)</label>
+                <input id="register-phone" name="phone" type="tel" autocomplete="tel" maxlength="30">
+
+                <label for="register-password">Password</label>
+                <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" aria-describedby="password-help" required>
+                <p id="password-help" class="field-help">Use at least 12 characters, including uppercase and lowercase letters, a number, and a symbol.</p>
+
+                <button type="submit">Create account</button>
+            </form>
+        </section>
+
+        <section id="account-panel" class="account-panel" aria-labelledby="account-title" hidden>
+            <div class="account-heading">
+                <div>
+                    <h2 id="account-title">Welcome, <span id="account-name"></span></h2>
+                    <p id="account-email"></p>
+                </div>
+                <button id="logout-button" class="secondary" type="button">Sign out</button>
+            </div>
+
+            <div class="history-grid">
+                <section class="history-section" aria-labelledby="reservations-title">
+                    <h3 id="reservations-title">Reservations</h3>
+                    <div id="reservations-history"></div>
+                </section>
+
+                <section class="history-section" aria-labelledby="test-drives-title">
+                    <h3 id="test-drives-title">Test-drive requests</h3>
+                    <div id="test-drives-history"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>AutoLot · Student project starter</footer>
+    <script src="account.js"></script>
+</body>
+</html>
