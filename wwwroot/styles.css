@@ -300,6 +300,16 @@ button:disabled {
     margin-top: 0;
 }
 
+.account-form input:not([type="checkbox"]):valid {
+    background-color: #e8f5e9;
+    border-color: #2e7d32;
+}
+
+.account-form input:not([type="checkbox"]):invalid {
+    background-color: #eef0f2;
+    border-color: #66766f;
+}
+
 .account-form button {
     justify-self: start;
 }

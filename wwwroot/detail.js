@@ -42,7 +42,7 @@ async function load() {
       }
       root.append(gallery);
     } else {
-      root.append(node('div', 'PHOTO COMING SOON', 'placeholder'));
+      root.append(node('div', 'COOL PHOTO HERE', 'placeholder'));
     }
 
     root.append(node('h2', 'About this vehicle'), node('p', vehicle.description || 'No description available.'));
@@ -59,10 +59,9 @@ async function load() {
       specifications.append(node('dt', label), node('dd', value || 'Not listed'));
     }
     root.append(node('h2', 'Specifications'), specifications);
-    root.append(node('p', 'Test drive and reservation requests are coming soon.'));
     status.textContent = 'Vehicle details loaded.';
   } catch {
-    status.textContent = 'Unable to load this vehicle. Check that the API and database are running.';
+    status.textContent = 'Unable to load this vehicle.';
   } finally {
     root.setAttribute('aria-busy', 'false');
   }

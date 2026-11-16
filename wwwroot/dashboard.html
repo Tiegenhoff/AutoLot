@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your dashboard | AutoLot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header>
+        <a class="brand" href="/">AUTO<span>LOT</span></a>
+        <nav aria-label="Primary navigation">
+            <a href="/">Browse vehicles</a>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container account-container">
+        <h1>Your dashboard</h1>
+        <p id="dashboard-message" role="status" aria-live="polite" aria-atomic="true">Loading your account…</p>
+
+        <section id="dashboard-panel" class="account-panel" aria-labelledby="account-title" hidden>
+            <div class="account-heading">
+                <div>
+                    <h2 id="account-title">Welcome, <span id="account-name"></span></h2>
+                    <p id="account-email"></p>
+                </div>
+                <button id="logout-button" class="secondary" type="button">Sign out</button>
+            </div>
+
+            <div class="history-grid">
+                <section class="history-section" aria-labelledby="reservations-title">
+                    <h3 id="reservations-title">Reservations</h3>
+                    <div id="reservations-history"></div>
+                </section>
+
+                <section class="history-section" aria-labelledby="test-drives-title">
+                    <h3 id="test-drives-title">Test-drive requests</h3>
+                    <div id="test-drives-history"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>AutoLot · Automotive Dealership Website For All Vehicles · CSE 4050 | Fall 2026</footer>
+    <script src="dashboard.js"></script>
+</body>
+</html>

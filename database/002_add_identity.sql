@@ -135,6 +135,19 @@ BEGIN
 			WHERE ur.UserId = u.UserID AND ur.RoleId = r.Id
 		);');
 
+	DECLARE @RoleDefaultConstraint sysname;
+	SELECT @RoleDefaultConstraint = dc.name
+	FROM sys.default_constraints AS dc
+	JOIN sys.columns AS c ON c.object_id = dc.parent_object_id AND c.column_id = dc.parent_column_id
+	WHERE dc.parent_object_id = OBJECT_ID('dbo.Users') AND c.name = 'Role';
+
+	IF @RoleDefaultConstraint IS NOT NULL
+	BEGIN
+		DECLARE @DropConstraintSql nvarchar(max) =
+			N'ALTER TABLE dbo.Users DROP CONSTRAINT ' + QUOTENAME(@RoleDefaultConstraint);
+		EXEC sys.sp_executesql @DropConstraintSql;
+	END;
+
 	IF EXISTS (SELECT 1 FROM sys.check_constraints WHERE parent_object_id = OBJECT_ID('dbo.Users') AND name = 'CK_Users_Role')
 		ALTER TABLE dbo.Users DROP CONSTRAINT CK_Users_Role;
 	ALTER TABLE dbo.Users DROP COLUMN Role;

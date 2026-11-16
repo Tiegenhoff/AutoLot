@@ -6,10 +6,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
+var connectionString = builder.Configuration.GetConnectionString("AutoLot");
+if (string.IsNullOrWhiteSpace(connectionString))
+    throw new InvalidOperationException("ConnectionStrings:AutoLot is missing. Set it with .NET user secrets; see README.md.");
+
+builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<VehicleRepository>();
+builder.Services.AddScoped<CustomerRequestHistoryRepository>();
 builder.Services.AddDbContext<AutoLotIdentityDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AutoLot")));
+    options.UseSqlServer(connectionString));
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole<int>>(options =>
     {

@@ -49,37 +49,16 @@
                 <input id="register-phone" name="phone" type="tel" autocomplete="tel" maxlength="30">
 
                 <label for="register-password">Password</label>
-                <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" aria-describedby="password-help" required>
+                <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{12,}" aria-describedby="password-help" required>
                 <p id="password-help" class="field-help">Use at least 12 characters, including uppercase and lowercase letters, a number, and a symbol.</p>
 
                 <button type="submit">Create account</button>
             </form>
         </section>
 
-        <section id="account-panel" class="account-panel" aria-labelledby="account-title" hidden>
-            <div class="account-heading">
-                <div>
-                    <h2 id="account-title">Welcome, <span id="account-name"></span></h2>
-                    <p id="account-email"></p>
-                </div>
-                <button id="logout-button" class="secondary" type="button">Sign out</button>
-            </div>
-
-            <div class="history-grid">
-                <section class="history-section" aria-labelledby="reservations-title">
-                    <h3 id="reservations-title">Reservations</h3>
-                    <div id="reservations-history"></div>
-                </section>
-
-                <section class="history-section" aria-labelledby="test-drives-title">
-                    <h3 id="test-drives-title">Test-drive requests</h3>
-                    <div id="test-drives-history"></div>
-                </section>
-            </div>
-        </section>
     </main>
 
-    <footer>AutoLot · Student project starter</footer>
+    <footer>AutoLot · Automotive Dealership Website For All Vehicles · CSE 4050 | Fall 2026</footer>
     <script src="account.js"></script>
 </body>
 </html>
